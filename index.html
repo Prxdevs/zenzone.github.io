@@ -53,6 +53,49 @@
 			text-decoration: none
 		}
 	</style>
+
+
+<style>
+   /* Modal container */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* High z-index to make sure it's above other content */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px; /* Optional: max width for better appearance */
+  position: relative; /* Positioning relative to the modal container */
+}
+
+/* Close button */
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  </style>
 	<style id='global-styles-inline-css'>
 		body {
 			--wp--preset--color--black: #000000;
@@ -1960,15 +2003,64 @@
 						</div>
 					</div>
 				</div>
+
+
+
+  
+	  
 				<div class="elementor-element elementor-element-856ee65 e-grid e-con-boxed elementor-invisible e-con e-child"
 					data-id="856ee65" data-element_type="container"
 					data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:200}">
 					<div class="e-con-inner">
+
+						<!-- Modal Structure -->
+<div id="dynamicModal" class="modal">
+	<div class="modal-content">
+	  <span class="modal-close">&times;</span>
+	  <div id="modal-body"></div>
+	</div>
+  </div>
+
+  <script>
+    function openModal(element) {
+      // Find the parent container of the clicked element
+      const container = element.closest('.elementor-element');
+      
+      // Extract the relevant content from the container
+      const content = container.querySelector('.elementor-icon-box-content').innerHTML;
+      
+      // Populate the modal with the content
+      const modal = document.getElementById('dynamicModal');
+      const modalBody = document.getElementById('modal-body');
+      
+      modalBody.innerHTML = content;
+      modal.style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('dynamicModal');
+      const closeModal = document.querySelector('.modal-close');
+
+      // Close modal when clicking on the close button
+      closeModal.addEventListener('click', function () {
+        modal.style.display = 'none';
+      });
+
+      // Close modal when clicking outside the modal content
+      window.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
 						<div class="elementor-element elementor-element-e319c96 e-grid e-con-boxed e-con e-child"
-							data-id="e319c96" data-element_type="container">
+							>
+							
 							<div class="e-con-inner">
 								<div class="elementor-element elementor-element-c0ff214 elementor-widget elementor-widget-image"
-									data-id="c0ff214" data-element_type="widget" data-widget_type="image.default">
+									>
 									<div class="elementor-widget-container">
 										<img loading="lazy" decoding="async" width="1280" height="854"
 											src="../wp-content/uploads/sites/37/2024/04/giving-individual-psychotherapy.jpg"
@@ -1982,8 +2074,7 @@
 									data-id="3d89503" data-element_type="container"
 									data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInLeft&quot;}">
 									<div class="elementor-element elementor-element-fea8c00 elementor-widget elementor-widget-icon-box"
-										data-id="fea8c00" data-element_type="widget"
-										data-widget_type="icon-box.default">
+										>
 										<div class="elementor-widget-container">
 											<div class="elementor-icon-box-wrapper">
 
@@ -2003,17 +2094,20 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-86d6aa8 elementor-widget elementor-widget-button"
-										data-id="86d6aa8" data-element_type="widget" data-widget_type="button.default">
+								
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2021,8 +2115,10 @@
 								</div>
 							</div>
 						</div>
+
+
 						<div class="elementor-element elementor-element-aefbf3a e-grid e-con-boxed e-con e-child"
-							data-id="aefbf3a" data-element_type="container">
+							>
 							<div class="e-con-inner">
 								<div class="elementor-element elementor-element-f0be8bb elementor-widget elementor-widget-image"
 									data-id="f0be8bb" data-element_type="widget" data-widget_type="image.default">
@@ -2060,17 +2156,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-6693bac elementor-widget elementor-widget-button"
-										data-id="6693bac" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2078,6 +2176,8 @@
 								</div>
 							</div>
 						</div>
+
+
 						<div class="elementor-element elementor-element-3105595 e-grid e-con-boxed e-con e-child"
 							data-id="3105595" data-element_type="container">
 							<div class="e-con-inner">
@@ -2117,17 +2217,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-ea3bc0b elementor-widget elementor-widget-button"
-										data-id="ea3bc0b" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2174,17 +2276,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-4aced89 elementor-widget elementor-widget-button"
-										data-id="4aced89" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2231,17 +2335,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-a9a706f elementor-widget elementor-widget-button"
-										data-id="a9a706f" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2289,17 +2395,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-a0d8571 elementor-widget elementor-widget-button"
-										data-id="a0d8571" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2347,17 +2455,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-ea3bc0b elementor-widget elementor-widget-button"
-										data-id="ea3bc0b" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
@@ -2404,17 +2514,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="elementor-element elementor-element-4aced89 elementor-widget elementor-widget-button"
-										data-id="4aced89" data-element_type="widget" data-widget_type="button.default">
+									<div class=" elementor-element-86d6aa8 elementor-widget elementor-widget-button">
 										<div class="elementor-widget-container">
+											
 											<div class="elementor-button-wrapper">
+												
 												<a class="elementor-button elementor-button-link elementor-size-sm"
-													href="#">
+												>
 													<span class="elementor-button-content-wrapper">
 														<span class="elementor-button-icon elementor-align-icon-right">
-															<i aria-hidden="true" class="mdi mdi-call-made"></i> </span>
-														<span class="elementor-button-text">Learn more</span>
-													</span>
+														  <i aria-hidden="true" class="mdi mdi-call-made"></i>
+														</span>
+														<span class="elementor-button-text" onclick="openModal(this)">Learn more</span>
+													  </span>													  
 												</a>
 											</div>
 										</div>
