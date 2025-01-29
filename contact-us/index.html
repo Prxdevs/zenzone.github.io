@@ -15,6 +15,7 @@
 		href="https://theme.creativemox.com/mindwell/feed/" />
 	<link rel="alternate" type="application/rss+xml" title="Mindwell &raquo; Comments Feed"
 		href="https://theme.creativemox.com/mindwell/comments/feed/" />
+	<script src="https://kit.fontawesome.com/7000bedbfc.js" crossorigin="anonymous"></script>
 	<script>
 		window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/theme.creativemox.com\/mindwell\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5.3" } };
 		/*! This file is auto-generated */
@@ -681,80 +682,77 @@
                                     </li> -->
 								</ul>
 							</nav>
-							<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle"
-								aria-expanded="false">
-								<i aria-hidden="true" role="presentation"
-									class="elementor-menu-toggle__icon--open  ti-menu"></i><i aria-hidden="true"
-									role="presentation" class="elementor-menu-toggle__icon--close  ti-close"></i> <span
-									class="elementor-screen-only">Menu</span>
-							</div>
-							<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
-								<ul id="menu-2-9c7dde1" class="elementor-nav-menu">
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-24">
-										<a href="index.html" aria-current="page"
-											class="elementor-item elementor-item-active" tabindex="-1">Homepage</a>
-									</li>
-									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23"><a
-											href="../about-us/index.html" class="elementor-item" tabindex="-1">About
-											us</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-25">
-										<a class="elementor-item" tabindex="-1">Services</a>
-										<ul class="sub-menu elementor-nav-menu--dropdown">
-											<!-- <li
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26">
-                                                <a href="../detail-service/index.html" class="elementor-sub-item"
-                                                    tabindex="-1">Detail service</a>
-                                            </li> -->
-											<li
-												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27">
-												<a href="../pricing-plan/index.html" class="elementor-sub-item"
-													tabindex="-1">Pricing plan</a>
-											</li>
-											<!-- <li
-												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28">
-												<a href="../appointment/index.html" class="elementor-sub-item"
-													tabindex="-1">Appointment</a>
-											</li> -->
-										</ul>
-									</li>
-									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29"><a
-											href="../contact-us/index.html" class="elementor-item" tabindex="-1">Contact
-											us</a></li>
-									<!-- <li
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-35">
-                                        <a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Pages</a>
-                                        <ul class="sub-menu elementor-nav-menu--dropdown">
-                                            <li
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31">
-                                                <a href="../team/index.html" class="elementor-sub-item"
-                                                    tabindex="-1">Team</a>
-                                            </li>
-                                            <li
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30">
-                                                <a href="../faq/index.html" class="elementor-sub-item"
-                                                    tabindex="-1">FAQ</a>
-                                            </li>
-                                            <li
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32">
-                                                <a href="https://theme.creativemox.com/mindwell/?elementor_library=mindwell-blog-archive"
-                                                    class="elementor-sub-item" tabindex="-1">Blog Archive</a>
-                                            </li>
-                                            <li
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33">
-                                                <a href="https://theme.creativemox.com/mindwell/2024/04/15/building-stronger-connections-the-importance-of-social-support/"
-                                                    class="elementor-sub-item" tabindex="-1">Single post</a>
-                                            </li>
-                                            <li
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-34">
-                                                <a href="https://theme.creativemox.com/mindwell/?elementor_library=mindwell-error-404"
-                                                    class="elementor-sub-item" tabindex="-1">Error 404</a>
-                                            </li>
-                                        </ul>
-                                    </li> -->
+							<nav class="navbar">
+								<ul class="nav-links" style="width: 50vw; text-align: center; padding: 0">
+									<li><a href="/homepage/index.html">Home</a></li>
+									<li><a href="/about-us/index.html">About</a></li>
+									<li><a href="/services/index.html">Services</a></li>
+									<li><a href="/contact-us/index.html">Contact</a></li>
 								</ul>
+								<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 							</nav>
+							<style>
+								.logo {
+									font-size: 1.5rem;
+									font-weight: bold;
+								}
+
+								.nav-links {
+									list-style: none;
+									display: flex;
+								}
+
+								.nav-links li {
+									margin: 0 15px;
+								}
+
+								.nav-links a {
+									text-decoration: none;
+									color: black;
+									transition: 0.3s;
+								}
+
+								.nav-links a:hover {
+									color: #f4a261;
+								}
+
+								.menu-toggle {
+									display: none;
+									font-size: 1.8rem;
+									cursor: pointer;
+								}
+
+								@media (max-width: 768px) {
+									.nav-links {
+										display: none;
+										flex-direction: column;
+										position: absolute;
+										top: 60px;
+										left: 0;
+										background: #fff;
+										width: 100%;
+										text-align: center;
+									}
+
+									.nav-links.active {
+										display: flex;
+									}
+
+									.nav-links li {
+										padding: 15px 0;
+									}
+
+									.menu-toggle {
+										display: block;
+									}
+								}
+							</style>
+							<script>
+								function toggleMenu() {
+									const navLinks = document.querySelector(".nav-links");
+									navLinks.classList.toggle("active");
+								}
+							</script>
 						</div>
 					</div>
 					<div class="elementor-element elementor-element-874fbe8 elementor-shape-circle elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"
@@ -1311,6 +1309,7 @@
 						body: JSON.stringify(formData),
 					})
 						.then(response => {
+							console.log('submit');
 							if (!response.ok) {
 								throw new Error('Network response was not ok');
 							}
@@ -1336,7 +1335,7 @@
 		<div>
 			<div style="margin: 5%;">
 				<h2>Enquiry Form</h2>
-				<form id="rekha" action="/submitForm" method="post">
+				<form id="rekha" method="post">
 					<label for="name">Name:</label>
 					<input type="text" id="name" name="name" required><br><br>
 
@@ -1367,6 +1366,7 @@
 
 					<input id="submitBtn" type="submit" value="Submit">
 				</form>
+
 			</div>
 		</div>
 
