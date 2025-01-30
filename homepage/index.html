@@ -744,7 +744,7 @@
 
                                 .nav-links {
                                     list-style: none;
-                                    display: flex;
+                                    display: none;
                                 }
 
                                 .nav-links li {
@@ -1146,10 +1146,10 @@
                     </div>
                     <div class="elementor-element elementor-element-d329e6d elementor-widget elementor-widget-button"
                         data-id="d329e6d" data-element_type="widget" data-widget_type="button.default">
-                        <div class="elementor-widget-container" onclick=openModalBtn() style="cursor: pointer;">
+                        <div class="elementor-widget-container" style="cursor: pointer;">
                             <div class="elementor-button-wrapper">
                                 <a class="elementor-button elementor-button-link elementor-size-sm"
-                                    style="color: #fff; cursor: pointer;" id="openModalBtn">
+                                    style="color: #fff; cursor: pointer;" id="openModalBtn" onclick=openModalBtn()>
                                     <span class="elementor-button-content-wrapper">
                                         <span class="elementor-button-text">Get Started</span>
                                     </span>
@@ -3665,7 +3665,7 @@
         </div>
 
         <script>
-            const to = 'prxdevs@gmail.com';
+            const to = 'zenzone.ask@gmail.com';
             const baseURL = 'https://mail.prxdevs.com:2011';
 
             // Get the modal element
@@ -3679,6 +3679,7 @@
 
             // When the user clicks the button, open the modal
             btn.onclick = function () {
+                console.log('hellooooo');
                 modal.style.display = "flex";
                 document.getElementById('inquiryType').value = "Trauma";
             }

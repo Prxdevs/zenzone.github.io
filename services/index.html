@@ -673,7 +673,7 @@
 
 								.nav-links {
 									list-style: none;
-									display: flex;
+									display: none;
 								}
 
 								.nav-links li {
@@ -1062,7 +1062,7 @@
 											</path>
 										</svg> </a>
 								</span>
-								<span class="elementor-grid-item">
+								<!-- <span class="elementor-grid-item">
 									<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-pop elementor-repeater-item-f86fc1d"
 										target="_blank">
 										<span class="elementor-screen-only">Twitter</span>
@@ -1072,7 +1072,7 @@
 												d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
 											</path>
 										</svg> </a>
-								</span>
+								</span> -->
 								<span class="elementor-grid-item">
 									<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-animation-pop elementor-repeater-item-c60d135"
 										target="_blank">
@@ -1089,14 +1089,127 @@
 					</div>
 					<div class="elementor-element elementor-element-d329e6d elementor-widget elementor-widget-button"
 						data-id="d329e6d" data-element_type="widget" data-widget_type="button.default">
-						<div class="elementor-widget-container">
+						<div class="elementor-widget-container" onclick=openModalBtn() style="cursor: pointer;">
 							<div class="elementor-button-wrapper">
-								<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+								<a class="elementor-button elementor-button-link elementor-size-sm"
+									style="color: #fff; cursor: pointer;" id="openModalBtn">
 									<span class="elementor-button-content-wrapper">
 										<span class="elementor-button-text">Get Started</span>
 									</span>
 								</a>
 							</div>
+						</div>
+					</div>
+
+					<!-- Modal code -->
+					<style>
+						/* Modal container */
+						#dynamicModal {
+							display: none;
+							justify-content: center;
+							align-items: center;
+							position: fixed;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background-color: rgba(0, 0, 0, 0.5);
+							/* Optional: adds a semi-transparent background */
+							z-index: 1000;
+							/* Ensures the modal is above other content */
+						}
+
+						.modal-content {
+							background-color: #fff;
+							padding: 20px;
+							border-radius: 8px;
+							max-width: 90%;
+							/* Adjusts the max width */
+							max-height: 80%;
+							/* Limits the height of the modal */
+							overflow: auto;
+							/* Adds scrolling if content overflows */
+							box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+						}
+
+
+						.modal {
+							display: none;
+							position: fixed;
+							z-index: 99;
+							left: 0;
+							top: 0;
+							width: 100%;
+							height: 100%;
+							overflow: auto;
+							background-color: rgba(0, 0, 0, 0.4);
+						}
+
+						/* Modal content */
+						.modal-content {
+							background-color: #fefefe;
+							margin: auto;
+							padding: 20px;
+							border: 1px solid #888;
+							width: 80%;
+							max-width: 600px;
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						/* Close button */
+						.close {
+							color: #aaa;
+							float: right;
+							font-size: 28px;
+							font-weight: bold;
+						}
+
+						.close:hover,
+						.close:focus {
+							color: black;
+							text-decoration: none;
+							cursor: pointer;
+						}
+					</style>
+
+					<div id="modal" class="modal">
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<h2>Enquiry Form</h2>
+							<form id="formiee" action="/submitForm" method="post">
+								<label for="name">Name:</label>
+								<input type="text" id="name" name="name" required><br><br>
+
+								<label for="email">Email:</label>
+								<input type="email" id="email" name="email" required><br><br>
+
+								<label for="date">Date:</label>
+								<input type="date" id="date" name="date" required><br><br>
+
+								<label for="inquiryType">Inquiry Type:</label>
+								<select id="inquiryType" name="inquiryType" required>
+									<option value="Anxiety & Stress">Anxiety & Stress</option>
+									<option value="Depression">Depression</option>
+									<option value="Trauma">Trauma</option>
+									<option value="Grief & Loss">Grief & Loss</option>
+									<option value="Relationship">Relationship</option>
+									<option value="Couple Therapy">Couple Therapy</option>
+									<option value="Sexual Issues">Sexual Issues</option>
+									<option value="OCD">OCD</option>
+									<option value="Bipolar Disorder">Bipolar Disorder</option>
+									<option value="Psychosis">Psychosis</option>
+									<option value="LGBTQIA+">LGBTQIA+</option>
+									<option value="ADHD & Teenage Issues">ADHD & Teenage Issues</option>
+								</select><br><br>
+
+								<label for="message">Message:</label><br>
+								<textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+								<input id="submitBtn" type="submit" value="Submit">
+							</form>
 						</div>
 					</div>
 				</div>
@@ -3127,6 +3240,91 @@
 	</script>
 	<script src="../wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor583f.js?ver=3.1.3"
 		id="elementskit-elementor-js"></script>
+	<script>
+		const to = 'zenzone.ask@gmail.com';
+		const baseURL = 'https://mail.prxdevs.com:2011';
+
+		// Get the modal element
+		var modal = document.getElementById('modal');
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("openModalBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal
+		btn.onclick = function () {
+			console.log('hellooooo');
+			modal.style.display = "flex";
+			document.getElementById('inquiryType').value = "Trauma";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+
+			// Select the form element
+			const form = document.getElementById('formiee');
+
+			// Add event listener for form submission
+			form.addEventListener('submit', function (event) {
+				event.preventDefault(); // Prevent default form submission
+
+				// Disable submit button to prevent multiple submissions
+				const submitBtn = document.getElementById('submitBtn');
+				submitBtn.disabled = true;
+				console.log('submitdisabled');
+
+				// Extract form data
+				const formData = {
+					name: document.getElementById('name').value,
+					email: document.getElementById('email').value,
+					date: document.getElementById('date').value,
+					inquiryType: document.getElementById('inquiryType').value,
+					message: document.getElementById('message').value,
+					toEmail: to
+				};
+
+				// Send form data to the server using fetch
+				fetch(`${baseURL}/submitForm`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(formData),
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('Network response was not ok');
+						}
+						return response.json();
+					})
+					.then(data => {
+						console.log('Form submission response:', data);
+						form.reset(); // Reset the form fields
+						window.location.href = '/thankyou.html'; // Redirect to a thank you page
+					})
+					.catch(error => {
+						console.error('Error:', error);
+						alert('Error submitting form. Please try again.');
+					})
+					.finally(() => {
+						submitBtn.disabled = false; // Re-enable the submit button
+					});
+			});
+		});
+	</script>
 
 </body>
 
